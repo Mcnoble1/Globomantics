@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
-const HouseFilter = ( { houses }) => {
+import { useContext } from "react";
+import HouseContext from "../context/housesContext";
+const HouseFilter = () => {
     const navigate = useNavigate();
+    const houses = useContext(HouseContext);
+
     const countries = houses ? Array.from(new Set(houses.map((h) => h.country))) : [];
     countries.unshift(null);
     const onSearchChange = (e) => {
